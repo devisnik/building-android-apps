@@ -22,7 +22,7 @@ On the "Create Android Project" screen, set the application name to "HelloWorldG
 
 image::Create-New-Project.png[]
 
-On the "Target Android Devices" screen, select _Phone and Tablet_ and choose any recent API level from the _Minimum SDK_ drop-down list. The figure shows API 19, which is common, but the value chose will not affect the rest of this guide.
+On the "Target Android Devices" screen, select _Phone and Tablet_ and choose any recent API level from the _Minimum SDK_ drop-down list. The figure shows API 19, which is common, but the value chosen will not affect the rest of this guide.
 
 image::Target-Android-Devices.png[]
 
@@ -147,13 +147,13 @@ android {
 }
 ----
 
-These properties are more relevant to Android than the Gradle build system, to they will only be lightly reviewed here. In short:
+These properties are more relevant to Android than the Gradle build system, so they will only be lightly reviewed here. In short:
 
 * The `compileSdkVersion` is associated with the Android SDK and should always be the latest available version.
-* The `defaultConfig` section hold properties that are shared by all variants (combinations of build types and product flavors) of the app.
+* The `defaultConfig` section holds properties that are shared by all variants (combinations of build types and product flavors) of the app.
 * The `applicationId` is based on the domain name and project name specified when creating the app, and must be unique in the Google Play store.
 * The value of `minSdkVersion` is the minimum Android API you are willing to support with this app, and the `targetSdkVersion` should be the latest Android version available.
-* The value of `versionCode` should be an integer that is incremented before uploading a new version of the app into the Google Play store. This value, along with the `applicationId`, tell Google that this is a new version of an existing app, as opposed to a new app.
+* The value of `versionCode` should be an integer that is incremented before uploading a new version of the app into the Google Play store. This value, along with the `applicationId`, tells Google that this is a new version of an existing app, as opposed to a new app.
 * The `versionName` value is used for your own internal version tracking.
 * The `testInstrumentationRunner` property is configured to use the JUnit 4 test runner configured for Android apps.
 
@@ -194,7 +194,7 @@ Android Studio makes it easy to build and deploy a debug version of an app throu
 $ ./gradlew build
 ----
 
-This will run many tasks and eventually return "Build Successful". To see the resulting APK (Android package, the deployable version of an Android app), look in the directory `app/build/outputs/apk`. There you will find a `debug` and a `release` directories.
+This will run many tasks and eventually return "Build Successful". To see the resulting APK (Android package, the deployable version of an Android app), look in the directory `app/build/outputs/apk`. There you will find a `debug` and a `release` directory.
 The `debug` directory contains `app-debug.apk`, which is the APK version that will be deployed to an emulator or connected device. If you want to deploy a release APK, you need to create a signing configuration first, which is beyond the scope of this guide, but is a straightforward process described in the resources.
 
 From the terminal, you can also find out the version of the `support-annotations` module being used in the project. To do so, first run the `dependencies` task in the `app` project, asking for the details of the `releaseCompileClasspath` configuration only.
